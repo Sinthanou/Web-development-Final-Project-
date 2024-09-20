@@ -3,10 +3,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from '../page/Home';
 import ProductDetail from '../page/ProductDetail';
 import Login from '../page/Login';
-import Layout from '../layout/layout';
 import SignIn from '../page/SignIn';
 import Payment1 from '../page/Payment1';
 import Payment2 from '../page/Payment2';
+import HeaderLayout from '../components/HeaderLayout';
 
 function Router() {
     const router = createBrowserRouter([
@@ -21,33 +21,33 @@ function Router() {
         {
             path: "/home",
             element: (
-                <Layout>
+                <HeaderLayout>
                     <Home />
-                </Layout>
+                </HeaderLayout>
             ) 
         },
         {
             path: "/product-detail",
             element: (
-                <Layout>
+                <HeaderLayout>
                     <ProductDetail />
-                </Layout>
+                </HeaderLayout>
             )
         },
         {
             path: "/payment-1",
             element: (
-                <Layout>
+                <HeaderLayout>
                     <Payment1 />
-                </Layout>
+                </HeaderLayout>
             )
         },
         {
             path: "/payment-2",
             element: (
-                <Layout>
+                <HeaderLayout>
                     <Payment2 />
-                </Layout>
+                </HeaderLayout>
             )
         },
     ]);
