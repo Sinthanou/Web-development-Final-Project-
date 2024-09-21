@@ -1,16 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import RegisNav from '../components/RegisNav';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+  const navigate = useNavigate()
+
+  const handleLogin = (e) => {
+    e.preventDefault()
+    Swal.fire({
+      icon: "success",
+      title: "Login success",
+      timer: 1000
+    })
+    navigate("/home")
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-500 to-orange-600 flex flex-col justify-between">
       {/* Header */}
       <RegisNav />
 
       {/* Main Login Section */}
-      <div className="flex justify-center items-center flex-grow ">
+      <form onSubmit={handleLogin} className="flex justify-center items-center flex-grow ">
         <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
           <div className="mb-6 mt-6">
             <label className="flex items-center mb-2 text-sm">
@@ -37,11 +50,9 @@ const Login = () => {
           </div>
 
           {/* Sign-in Button */}
-          <Link to={"/home"}>
-            <button className="w-full bg-orange-500 text-white py-2 rounded-sm hover:bg-orange-600 transition-colors mb-4">
+            <button type='submit' className="w-full bg-orange-500 text-white py-2 rounded-sm hover:bg-orange-600 transition-colors mb-4">
               Sign in
             </button>
-          </Link>
 
           {/* Create Account Link */}
           <div className="text-end text-sm">
@@ -62,7 +73,7 @@ const Login = () => {
             </div>
           </div>
         </div>
-      </div>
+      </form>
 
       {/* Footer Section */}
       <Footer/>

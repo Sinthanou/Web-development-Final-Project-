@@ -1,9 +1,22 @@
 import React from 'react';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import RegisNav from '../components/RegisNav';
+import Swal from 'sweetalert2';
 
 const SignIn = () => {
+  const navigate = useNavigate()
+
+  const handleSigin = (e) => {
+    e.preventDefault()
+    Swal.fire({
+      icon: "success",
+      title: "Sign success",
+      text: "Create account success"
+    })
+    navigate("/")
+  }
+
   return (
     <div className="min-h-screen flex flex-col justify-between bg-gradient-to-b from-orange-500 to-orange-600">
       {/* Header */}
@@ -12,7 +25,7 @@ const SignIn = () => {
       {/* Main Sign-up Section */}
       <div className="flex justify-center items-center flex-grow space-x-12">
         {/* Sign-up Form */}
-        <div className="bg-white p-8 rounded-lg shadow-lg w-96 mb-6 mt-6">
+        <form onSubmit={handleSigin} className="bg-white p-8 rounded-lg shadow-lg w-96 mb-6 mt-6">
           <h2 className="text-xl font-bold mb-5 text-center">Sign up</h2>
 
           <div className="grid grid-cols-2 gap-4">
@@ -83,12 +96,10 @@ const SignIn = () => {
           </div>
 
           {/* Sign-up Button */}
-          <Link to={"/home"}>
-            <button className="w-full bg-orange-500 text-white py-2 rounded-sm hover:bg-orange-600 transition-colors mt-6 ">
+            <button type='submit' className="w-full bg-orange-500 text-white py-2 rounded-sm hover:bg-orange-600 transition-colors mt-6 ">
               Sign up
             </button>
-          </Link>
-        </div>
+        </form>
 
         {/* Sign-up with other options */}
         <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow-lg w-96">
