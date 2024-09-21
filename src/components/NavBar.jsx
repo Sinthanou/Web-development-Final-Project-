@@ -4,7 +4,7 @@ import { TfiWorld } from "react-icons/tfi";
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useMyContext } from '../context/MyContext';
-import icon from '../assets/image/icon.png'
+import icon from '../assets/image/Icon.png'
 import { Link } from 'react-router-dom';
 
 
